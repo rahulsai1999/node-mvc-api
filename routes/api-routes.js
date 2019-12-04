@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import {
     indexContact,
-    newContact,
     viewContact,
     updateContact,
     deleteContact
@@ -19,7 +18,6 @@ router.get('/', (req, res) => {
 //controllers routes
 router.route('/contacts')
     .get(indexContact)
-    .post(newContact);
 router.route('/contacts/:contact_id')
     .get(viewContact)
     .patch(updateContact)

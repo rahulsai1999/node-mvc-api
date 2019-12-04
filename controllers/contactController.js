@@ -13,20 +13,6 @@ const indexContact = (req, res) => {
     });
 }
 
-const newContact = (req, res) => {
-    let contact = new Contact();
-    contact.name = req.body.name ? req.body.name : contact.name;
-    contact.gender = req.body.gender;
-    contact.email = req.body.email;
-    contact.phone = req.body.phone;
-
-    contact.save((err) => {
-        err
-            ? res.json({ status: "Contact not created", message: err })
-            : res.json({ message: 'New contact created', data: contact });
-    });
-}
-
 const viewContact = (req, res) => {
     Contact.findById(req.params.contact_id, (err, contact) => {
         if (err)
@@ -64,4 +50,4 @@ const deleteContact = (req, res) => {
     });
 }
 
-export { indexContact, newContact, viewContact, updateContact, deleteContact }
+export { indexContact, viewContact, updateContact, deleteContact }

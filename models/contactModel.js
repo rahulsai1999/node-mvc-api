@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import passportLocalMongoose from "passport-local-mongoose";
 
 const contactSchema = mongoose.Schema({
     name: {
@@ -9,6 +10,8 @@ const contactSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    username: String,
+    password: String,
     gender: String,
     phone: String,
     create_date: {
@@ -17,5 +20,7 @@ const contactSchema = mongoose.Schema({
     }
 });
 
+contactSchema.plugin(passportLocalMongoose);
 const contact = mongoose.model('contact', contactSchema);
+
 export default contact;
