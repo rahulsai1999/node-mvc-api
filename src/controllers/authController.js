@@ -1,7 +1,7 @@
-import Contact from '../models/contactModel';
 import passport from 'passport';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import Contact from '../models/contactModel';
 
 dotenv.config();
 const secret = process.env.SECRET;
