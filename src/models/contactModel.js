@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import passportLocalMongoose from "passport-local-mongoose";
-import Blog from "./blogModel";
 
 const contactSchema = mongoose.Schema({
   name: {
@@ -15,6 +14,12 @@ const contactSchema = mongoose.Schema({
   password: String,
   gender: String,
   phone: String,
+  blogs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "blog",
+    },
+  ],
   create_date: {
     type: Date,
     default: Date.now,
