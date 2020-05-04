@@ -1,0 +1,22 @@
+# Test the back-end server
+name: Test CI
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-16.04
+    steps:
+      - uses: actions/checkout@master
+      - name: setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: install-dependencies
+        run: npm ci
+      - name: test
+        run: npm run test
