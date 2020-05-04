@@ -1,10 +1,5 @@
 import { Router } from "express";
-import {
-  indexContact,
-  viewContact,
-  updateContact,
-  deleteContact,
-} from "../controllers/contactController";
+import { contactMine } from "../controllers/contactController";
 
 const router = Router();
 
@@ -15,13 +10,6 @@ router.get("/", (req, res) => {
   });
 });
 
-//controllers routes
-router.route("/contacts").get(indexContact);
-router
-  .route("/contacts/:contact_id")
-  .get(viewContact)
-  .patch(updateContact)
-  .put(updateContact)
-  .delete(deleteContact);
+router.get("/contact", contactMine);
 
 export default router;

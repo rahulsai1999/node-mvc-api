@@ -38,13 +38,13 @@ mongoose.connect(
   `mongodb://${dbuser}:${dbpass}@${dbhost}`,
   { useNewUrlParser: true },
   (err) => {
-    err ? console.log(err) : null;
+    err ? console.log(err) : console.log("Database Connected");
   }
 );
 
 //auth utilities
 let options = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme("jwt"),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: process.env.SECRET,
 };
 app.use(passport.initialize());
