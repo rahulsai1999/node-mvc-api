@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "babel-node src/index.js"
+    "start": "babel-node src/server.js"
   },
   "author": "Rahul Sai",
   "dependencies": {
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "jest": "^25.5.4"
+    "jest": "^25.5.4",
+    "supertest": "^4.0.2"
   }
 }

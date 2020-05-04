@@ -22,7 +22,6 @@ import Contact from "./models/contactModel";
 const app = express();
 dotenv.config();
 
-const port = process.env.PORT || 3000;
 const dbuser = process.env.DB_USER;
 const dbpass = process.env.DB_PASS;
 const dbhost = process.env.DB_HOST;
@@ -38,7 +37,7 @@ mongoose.connect(
   `mongodb://${dbuser}:${dbpass}@${dbhost}`,
   { useNewUrlParser: true },
   (err) => {
-    err ? console.log(err) : console.log("Database Connected");
+    err ? console.log(err) : null;
   }
 );
 
@@ -71,15 +70,8 @@ passport.use(
   })
 );
 
-//routes
-app.get("/", (req, res) => {
-  res.json({ message: "Use /v1 to access the actual api" });
-});
-
 app.use("/", apiRoutes);
 app.use("/", authRoutes);
 app.use("/", blogRoutes);
 
-app.listen(port, () => {
-  console.log("Running on port " + port);
-});
+export default app;

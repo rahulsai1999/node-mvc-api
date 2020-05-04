@@ -1,4 +1,4 @@
-## REST API (MVC Model)
+## REST API (MVC Model) ![Test CI](https://github.com/rahulsai1999/node-mvc-api/workflows/Test%20CI/badge.svg)
 
 - To deploy on an NGINX reverse proxy, refer the nginx.conf (after starting the server)
 - To start the server
