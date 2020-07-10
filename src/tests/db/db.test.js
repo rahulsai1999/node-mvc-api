@@ -22,16 +22,16 @@ describe("Test DB", () => {
     await mongoose.connection.close();
   });
 
-  it("Insert and Find Blog", async () => {
+  it("Should Insert and Find Blog", async () => {
     const mockBlog = { title: "Sample", body: "Sample Blog Here" };
     await Blog.create(mockBlog);
 
     const insertedBlog = await Blog.findOne({ title: "Sample" });
     expect(insertedBlog.title).toEqual(mockBlog.title);
     expect(insertedBlog.body).toEqual(mockBlog.body);
-  });
+  }, 99999);
 
-  it("Delete a Blog", async () => {
+  it(" Should Delete a Blog", async () => {
     await Blog.findOneAndDelete({ title: "Sample" });
-  });
+  }, 99999);
 });
